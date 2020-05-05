@@ -10,11 +10,6 @@ import os
 # Geolocation API
 ###########################################
 loc = geocoder.ip('me')
-lat_long = loc.latlng
-
-str1 = ''.join(str(e) for e in lat_long)
-print(str1)
-
 
 
 # News API
@@ -24,7 +19,6 @@ newsapi = NewsApiClient(api_key=NEWS_API_KEY)
 all_articles = newsapi.get_top_headlines(q='skateboarding',
                                       language='en',
                                       page=1)
-
 
 # Yelp API
 ###########################################
@@ -46,17 +40,16 @@ url_params = {
 response = requests.get(url, headers=headers, params=url_params)
 # pprint(response.json())
 
+# IP Location
+###########################################
 
 # Creating a Map
 ###########################################
-
-
 lat_long = response.json()['region']['center']
 lat = lat_long['latitude']
 long = lat_long['longitude']
 
-
-tooltip = '*'
+tooltip = 'Click here!'
 f_map = folium.Map([lat, long], zoom_start=5)
 
 f_marker = folium.Marker([33.5215, -84.3538], popup='<strong>Your Location</strong>', tooltip=tooltip).add_to(f_map)
