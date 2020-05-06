@@ -3,15 +3,20 @@ from flask_debugtoolbar import DebugToolbarExtension
 from form import Input
 from apis import f_map, f_marker
 from secrets import NEWS_API_KEY, SECRET
+from models import connect_db, db
 import requests
-import requests_cache
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///skate_db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_ECHO"] = True
 app.config["SECRET_KEY"] = SECRET
-toolbar = DebugToolbarExtension(app)
 
-# requests_cache.install_cache(
-#     cache_name='mapbox_cache', backend='sqlite', expire_after=180)
+connect_db(app)
+# db.drop_all()
+db.create_all()
+
+toolbar = DebugToolbarExtension(app)
 
 @app.route('/')
 def redirect_to_home():
@@ -27,6 +32,7 @@ def homepage():
     f_map.save('templates/map.html')
 
     form = Input()
+    # form.city.choices = [city.name for city in City.query.filter_by(state=st).all()]
 
     if form.validate_on_submit():
 

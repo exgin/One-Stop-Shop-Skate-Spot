@@ -13,6 +13,18 @@ def connect_db(app):
     db.init_app(app)
 
 
+class StateData(db.Model):
+    """States/citys"""
+    __tablename__ = "usa"
+
+    city = db.Column(db.Text, nullable=False)
+    state_id = db.Column(db.Text, nullable=False)
+    state_name = db.Column(db.Text, nullable=False)
+    county_name = db.Column(db.Text, nullable=True)
+    city_alias = db.Column(db.Text, nullable=True)
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
+
+
 class User(db.Model):
     """Base user"""
     __tablename__ = "users"
@@ -22,8 +34,6 @@ class User(db.Model):
                          unique=True, primary_key=True)
     password = db.Column(db.Text,
                          nullable=False)
-    email = db.Column(db.String(50),
-                      nullable=False)
 
     # Creating our user password
     @classmethod

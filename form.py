@@ -1,10 +1,15 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, SelectField
 from wtforms.validators import InputRequired
 
-
+states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
+          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+          
 class Input(FlaskForm):
     """Get user's destination & geolocation"""
 
-    desired_location = StringField("Where do you want to skate to?", validators=[
-                                   InputRequired(message="Please enter a location")])
+    state = SelectField('State', choices=[(st, st) for st in states])    
+    city = SelectField('City', choices=[])

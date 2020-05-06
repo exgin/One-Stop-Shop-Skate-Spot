@@ -23,7 +23,8 @@ all_articles = newsapi.get_top_headlines(q='skateboarding',
 # Yelp API
 ###########################################
 term = 'Skatepark'
-location = 'Atlanta, GA'
+# set as a parameter in a function to request skateparks near their geo location location = city_state
+location = 'San Jose, CA'
 SEARCH_LIMIT = 10
 
 url = 'https://api.yelp.com/v3/businesses/search'
@@ -31,7 +32,6 @@ url = 'https://api.yelp.com/v3/businesses/search'
 headers = {
         'Authorization': 'Bearer {}'.format(api_key),
     }
-
 url_params = {
                 'term': term.replace(' ', '+'),
                 'location': location.replace(' ', '+'),
@@ -42,9 +42,12 @@ response = requests.get(url, headers=headers, params=url_params)
 
 # IP Location
 ###########################################
+# Most likley going to use JS for this to get the user's geo location if it ends up working
+
 
 # Creating a Map
 ###########################################
+# For now, I'm using the geo locations response from yelp's API
 lat_long = response.json()['region']['center']
 lat = lat_long['latitude']
 long = lat_long['longitude']
@@ -52,7 +55,7 @@ long = lat_long['longitude']
 tooltip = 'Click here!'
 f_map = folium.Map([lat, long], zoom_start=5)
 
-f_marker = folium.Marker([33.5215, -84.3538], popup='<strong>Your Location</strong>', tooltip=tooltip).add_to(f_map)
+f_marker = folium.Marker([lat, long], popup='<strong>Location Center</strong>', tooltip=tooltip).add_to(f_map)
 
 
 
