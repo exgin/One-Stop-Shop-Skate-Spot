@@ -12,4 +12,4 @@ class Input(FlaskForm):
     """Get user's destination & geolocation"""
 
     state = SelectField('State', choices=[(st, st) for st in states])    
-    city = SelectField('City', choices=[])
+    city = SelectField('City', choices=['yo'])

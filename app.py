@@ -7,7 +7,7 @@ from models import connect_db, db
 import requests
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///skate_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///city_state"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
 app.config["SECRET_KEY"] = SECRET
@@ -27,8 +27,8 @@ def redirect_to_home():
 @app.route('/home', methods=['GET', 'POST'])
 def homepage():
     """Show homepage, user current location & map of amount of skateparks in the users state"""
-    f_marker
     f_map
+    f_marker
     f_map.save('templates/map.html')
 
     form = Input()
