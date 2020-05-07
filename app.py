@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from form import Input
-from apis import f_map, f_marker
+from apis import yelp_api
 from secrets import NEWS_API_KEY, SECRET
-from models import connect_db, db
+from models import connect_db, db, StateData
 import requests
 
 app = Flask(__name__)
@@ -13,7 +13,6 @@ app.config["SQLALCHEMY_ECHO"] = True
 app.config["SECRET_KEY"] = SECRET
 
 connect_db(app)
-# db.drop_all()
 db.create_all()
 
 toolbar = DebugToolbarExtension(app)
@@ -27,18 +26,33 @@ def redirect_to_home():
 @app.route('/home', methods=['GET', 'POST'])
 def homepage():
     """Show homepage, user current location & map of amount of skateparks in the users state"""
-    f_map
-    f_marker
-    f_map.save('templates/map.html')
-
     form = Input()
-    # form.city.choices = [city.name for city in City.query.filter_by(state=st).all()]
 
     if form.validate_on_submit():
+        city = form.state.data
+        state = form.city.data
+
+        yelp_api(state)
+        print('********************************************************************************************')
 
         return redirect('/home')
     else:
         return render_template('home.html', form=form)
+
+@app.route('/city/<state_id>')
+def city(state_id):
+    """Call route when the select changes"""
+    cities = StateData.query.filter_by(state_id=state_id).all()
+
+    cityList = []
+
+    for city in cities:
+        cityObj = {}
+        cityObj['state_id'] = city.state_id
+        cityObj['city'] = city.city
+        cityList.append(cityObj)
+
+    return jsonify({'cities' : cityList})
 
 @app.route('/map')
 def map():

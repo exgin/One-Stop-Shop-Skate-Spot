@@ -11,5 +11,5 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
 class Input(FlaskForm):
     """Get user's destination & geolocation"""
 
-    state = SelectField('State', choices=[(st, st) for st in states])    
-    city = SelectField('City', choices=['yo'])
+    state = SelectField('Enter your state', choices=[(st, st) for st in states])    
+    city = SelectField('Enter your city', choices=[])

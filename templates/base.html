@@ -21,10 +21,27 @@
     <iframe class="map" src="{{ url_for('map') }}" height="500" width="500"></iframe>
 
     <!-- Scripts -->
+    <script>
+      let stateSelect = document.getElementById('state');
+      let citySelect = document.getElementById('city');
+
+      stateSelect.onchange = function () {
+        state = stateSelect.value;
+
+        fetch(`/city/${state}`).then(function (res) {
+          res.json().then(function (data) {
+            let optionHTML = '';
+            for (let city of data.cities) {
+              optionHTML += `<option value="${city.state_id}">${city.city}</option>`;
+            }
+            citySelect.innerHTML = optionHTML;
+          });
+        });
+      };
+    </script>
+    <script src="templates/static/cityState.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-
-    <script type="text/javascript" src="{{ url_for('static', filename='test.js')}}"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
