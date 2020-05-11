@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, session
 from flask_debugtoolbar import DebugToolbarExtension
 from form import Input
 from apis import yelp_api
@@ -20,7 +20,6 @@ toolbar = DebugToolbarExtension(app)
 @app.route('/')
 def redirect_to_home():
     """Simple route to redirect user back to our home page"""
-
     return redirect('/home')
 
 @app.route('/home', methods=['GET', 'POST'])
@@ -28,16 +27,10 @@ def homepage():
     """Show homepage, user current location & map of amount of skateparks in the users state"""
     form = Input()
 
-    if form.validate_on_submit():
-        city = form.state.data
-        state = form.city.data
+    if request.method == 'POST':
+        return f'State: {form.state.data}. City: {form.city.data}'
 
-        yelp_api(state)
-        print('********************************************************************************************')
-
-        return redirect('/home')
-    else:
-        return render_template('home.html', form=form)
+    return render_template('home.html', form=form)
 
 @app.route('/city/<state_id>')
 def city(state_id):
@@ -58,4 +51,3 @@ def city(state_id):
 def map():
     """Show map"""
     return render_template('./map.html') 
-

@@ -1,13 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<form method="GET">
-  {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
+<form method="POST">
+  {% if form.errors %} {{ form.errors }} {% endif %} {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
   <p>
     {{ field.label }} {{ field }} {% for error in field.errors %} {{ error }} {% endfor %}
   </p>
   {% endfor %}
 
-  <button class="btn btn-md btn-outline-primary" type="submit">Let's find where you are!</button>
+  <button class="btn btn-md btn-outline-primary" type="submit">Find skateparks near you!</button>
 </form>
 
-<hr />
 {% endblock %}
