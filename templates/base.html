@@ -65,9 +65,10 @@
           res.json().then(function (data) {
             let optionHTML = '';
             for (let city of data.cities) {
-              optionHTML += `<option value="${city.state_id}">${city.city}</option>`;
+              optionHTML += `<option value="${city.city}">${city.city}</option>`;
             }
             citySelect.innerHTML = optionHTML;
+            console.log(citySelect.innerHTML);
           });
         });
       };

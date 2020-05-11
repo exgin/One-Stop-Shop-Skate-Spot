@@ -23,3 +23,4 @@ class StateData(db.Model):
     timezone = db.Column(db.Text, nullable=True)
     id = db.Column(db.Integer, nullable=False, primary_key=True)
 
+
