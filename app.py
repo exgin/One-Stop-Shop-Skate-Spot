@@ -26,9 +26,13 @@ def redirect_to_home():
 def homepage():
     """Show homepage, user current location & map of amount of skateparks in the users state"""
     form = Input()
-
+    
     if request.method == 'POST':
-        return f'State: {form.state.data}. City: {form.city.data}'
+        location =  f'{form.city.data}, {form.state.data}'
+        yelp_api(location)
+
+
+        return redirect('/home')
 
     return render_template('home.html', form=form)
 
