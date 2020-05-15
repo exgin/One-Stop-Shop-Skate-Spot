@@ -10,13 +10,13 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <!-- <link href="templates/static/style.css" rel="stylesheet" /> -->
+    <link href="./static/style.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Navbar -->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="/templates/images/905620b4-05a9-4443-b54a-e41eec697cc5_200x200.png" alt="logo" /></a>
+        <a class="navbar-brand" href="#"><img src="./images/905620b4-05a9-4443-b54a-e41eec697cc5_200x200.png" alt="logo" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,12 +44,12 @@
         </div>
       </nav>
 
-      <!-- WTForms Error Messages -->
-      <div class="m-2">
+      <!-- WTForms -->
+      <div>
+        <iframe class="float-right" src="{{ url_for('map') }}" height="300" width="750"></iframe>
         {% for msg in get_flashed_messages() %}
-        <div class="alert alert-danger">{{ msg }}</div>
+        <div class="alert alert-danger row-6">{{ msg }}</div>
         {% endfor %} {% block content %} {% endblock %}
-        <iframe class="map float-right" src="{{ url_for('map') }}" height="500" width="500"></iframe>
       </div>
     </div>
 
