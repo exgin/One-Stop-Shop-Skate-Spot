@@ -10,47 +10,52 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link href="./static/style.css" rel="stylesheet" />
+    <link href="static/style.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- Navbar -->
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="./images/905620b4-05a9-4443-b54a-e41eec697cc5_200x200.png" alt="logo" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Learn</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pro Teams</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More. . .
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Top 100</a>
-                <a class="dropdown-item" href="#">Get active</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <div class="overlay">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#"><img src="images/905620b4-05a9-4443-b54a-e41eec697cc5_200x200.png" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Learn</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pro Teams</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More. . .
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Top 100</a>
+                  <a class="dropdown-item" href="#">Get active</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Rodney -->
+
+        <!-- End Rodney -->
+      </div>
 
       <!-- WTForms -->
-      <div>
-        <iframe class="float-right" src="{{ url_for('map') }}" height="300" width="750"></iframe>
-        {% for msg in get_flashed_messages() %}
-        <div class="alert alert-danger row-6">{{ msg }}</div>
-        {% endfor %} {% block content %} {% endblock %}
-      </div>
+      <iframe class="float-right" src="{{ url_for('map') }}" height="300" width="750"></iframe>
+      {% for msg in get_flashed_messages() %}
+      <div class="alert alert-danger row-6">{{ msg }}</div>
+      {% endfor %} {% block content %} {% endblock %}
     </div>
 
     <!-- Scripts -->
@@ -68,13 +73,13 @@
               optionHTML += `<option value="${city.city}">${city.city}</option>`;
             }
             citySelect.innerHTML = optionHTML;
-            console.log(citySelect.innerHTML);
           });
         });
       };
     </script>
 
-    <!-- <script src="templates/static/cityState.js"></script> -->
+    <!-- <script src="static/cityState.js"></script> -->
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
