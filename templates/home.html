@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+
+
 <form method="POST">
   {% if form.errors %} {{ form.errors }} {% endif %} {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
   <p>

@@ -14,71 +14,52 @@
   </head>
   <body>
     <div class="container">
-      <div class="overlay">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#"><img src="images/905620b4-05a9-4443-b54a-e41eec697cc5_200x200.png" alt="logo" /></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Learn</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pro Teams</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  More. . .
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Top 100</a>
-                  <a class="dropdown-item" href="#">Get active</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <!-- Navbar End -->
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Learn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pro Teams</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More. . .
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Top 100</a>
+                <a class="dropdown-item" href="#">Get active</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Navbar End -->
 
-        <!-- Rodney -->
-
-        <!-- End Rodney -->
+      <!-- Rodney -->
+      <div>
+        <img src="images/rodney.jpg" alt="-rodney-" />
       </div>
+      <!-- End rodney -->
 
       <!-- WTForms -->
-      <iframe class="float-right" src="{{ url_for('map') }}" height="300" width="750"></iframe>
+      <iframe class="float-right" src="{{ url_for('map') }}" height="300" width="700"></iframe>
       {% for msg in get_flashed_messages() %}
       <div class="alert alert-danger row-6">{{ msg }}</div>
       {% endfor %} {% block content %} {% endblock %}
     </div>
 
     <!-- Scripts -->
-    <script>
-      let stateSelect = document.getElementById('state');
-      let citySelect = document.getElementById('city');
-
-      stateSelect.onchange = function () {
-        state = stateSelect.value;
-
-        fetch(`/city/${state}`).then(function (res) {
-          res.json().then(function (data) {
-            let optionHTML = '';
-            for (let city of data.cities) {
-              optionHTML += `<option value="${city.city}">${city.city}</option>`;
-            }
-            citySelect.innerHTML = optionHTML;
-          });
-        });
-      };
-    </script>
-
-    <!-- <script src="static/cityState.js"></script> -->
+    <script src="static/cityState.js"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script
