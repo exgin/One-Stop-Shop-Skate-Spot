@@ -1,24 +1,22 @@
-from pprint import pprint
 from newsapi import NewsApiClient
 from secrets import NEWS_API_KEY, client_id, api_key
-from yelp.client import Client
 import requests
 import pandas
 import folium
 import os
-import json
-
 
 # -News API-
 ###########################################
 newsapi = NewsApiClient(api_key=NEWS_API_KEY)
 
 all_articles = newsapi.get_top_headlines(q='skateboarding',
-                                      language='en',
-                                      page=1)
+                                         language='en',
+                                         page=1)
 
 # -Yelp API-
 ###########################################
+
+
 def yelp_api(location):
     term = 'Skatepark'
     location = location
@@ -27,13 +25,13 @@ def yelp_api(location):
     url = 'https://api.yelp.com/v3/businesses/search'
 
     headers = {
-            'Authorization': 'Bearer {}'.format(api_key),
-        }
+        'Authorization': 'Bearer {}'.format(api_key),
+    }
     url_params = {
-                    'term': term.replace(' ', '+'),
-                    'location': location.replace(' ', '+'),
-                    'limit': SEARCH_LIMIT
-                }
+        'term': term.replace(' ', '+'),
+        'location': location.replace(' ', '+'),
+        'limit': SEARCH_LIMIT
+    }
     response = requests.get(url, headers=headers, params=url_params)
 
     ############ Creating Map ############
@@ -48,9 +46,8 @@ def yelp_api(location):
     tooltip = 'Click here!'
     skatepark = 'Skatepark near you!'
     f_map = folium.Map([lat, long], zoom_start=9)
-    f_current_loc = folium.Marker([lat, long], popup='<strong>Current Location!</strong>', tooltip=tooltip).add_to(f_map)
-
-
+    f_current_loc = folium.Marker(
+        [lat, long], popup='<strong>Current Location!</strong>', tooltip=tooltip).add_to(f_map)
 
     # get all of the business lat/long
     bus = response.json()['businesses']
@@ -66,7 +63,8 @@ def yelp_api(location):
         string_addy = ' '.join(map(str, addy))
         name = element['name']
 
-        folium.Marker([lat, long], popup=f"<h5><b>{name}</b></h5> | <i>Address:</i> {string_addy}", tooltip=skatepark, icon=folium.Icon(color='black', icon='cloud')).add_to(f_map)
+        folium.Marker([lat, long], popup=f"<h5><b>{name}</b></h5> | <i>Address:</i> {string_addy}",
+                      tooltip=skatepark, icon=folium.Icon(color='black', icon='cloud')).add_to(f_map)
 
     # lay out map label
     f_map.choropleth(
@@ -81,6 +79,5 @@ def yelp_api(location):
         legend_name='Skateparks Per State'
     )
     f_add = folium.LayerControl().add_to(f_map)
-    
-    f_map.save('templates/map.html')
 
+    f_map.save('templates/map.html')

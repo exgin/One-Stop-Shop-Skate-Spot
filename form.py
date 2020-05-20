@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField
+from wtforms import SelectField
 from wtforms.validators import InputRequired
-from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
 states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
@@ -9,8 +8,10 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
+
 class Input(FlaskForm):
     """Get user's destination & geolocation"""
 
-    state = SelectField('Your state:', choices=[(st, st) for st in states], validators=[InputRequired()])    
-    city = SelectField('City:', choices=[], validators=[InputRequired()])
+    state = SelectField('Your State:', choices=[
+                        (st, st) for st in states], validators=[InputRequired()])
+    city = SelectField('Your City:', choices=[], validators=[InputRequired()])
