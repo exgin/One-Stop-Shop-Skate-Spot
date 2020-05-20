@@ -16,7 +16,7 @@
     <div class="container">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo" /></a>
+        <a class="navbar-brand" href="#"><img src="static/images/logo.png" alt="logo" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,17 +47,19 @@
 
       <!-- Rodney -->
       <div>
-        <img src="images/rodney.jpg" alt="-rodney-" />
+        <img src="static/images/rodney.jpg" alt="-rodney-" />
       </div>
       <!-- End rodney -->
 
       <!-- WTForms -->
+      <!-- Map -->
       <iframe class="float-right" src="{{ url_for('map') }}" height="300" width="700"></iframe>
+      <!-- Map End -->
       {% for msg in get_flashed_messages() %}
       <div class="alert alert-danger row-6">{{ msg }}</div>
       {% endfor %} {% block content %} {% endblock %}
     </div>
-
+    <!-- WTForms End-->
     <!-- Scripts -->
     <script src="static/cityState.js"></script>
 
