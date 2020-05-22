@@ -1,9 +1,34 @@
-body {
-  background: rgba(0, 0, 0, 0.1) url('./images/filipe.jpg');
-  background-size: contain;
-  back
+/* body {
+  background-image: url('./images/filipe.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+
+.main-header {
+  height: 100vh;
+  min-height: 500px;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/filipe.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.img-header {
+  filter: brightness(50%);
+}
+
+.rest-text {
+  color: #6ff037;
+}
+
+/* Center brand logo */
+.navbar-brand {
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  background-image: url('logo.png');
 }
 
 .form-p {
-  color: white;
+  font-size: 1.2em;
 }

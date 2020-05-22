@@ -45,7 +45,7 @@ def yelp_api(location):
 
     tooltip = 'Click here!'
     skatepark = 'Skatepark near you!'
-    f_map = folium.Map([lat, long], zoom_start=9)
+    f_map = folium.Map([lat, long], zoom_start=11)
     f_current_loc = folium.Marker(
         [lat, long], popup='<strong>Current Location!</strong>', tooltip=tooltip).add_to(f_map)
 

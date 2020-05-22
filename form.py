@@ -13,5 +13,5 @@ class Input(FlaskForm):
     """Get user's destination & geolocation"""
 
     state = SelectField('Your State:', choices=[
-                        (st, st) for st in states], validators=[InputRequired()])
+        (st, st) for st in states], validators=[InputRequired()])
     city = SelectField('Your City:', choices=[], validators=[InputRequired()])
