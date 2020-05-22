@@ -1,10 +1,23 @@
 /* body {
-  background-image: url('./images/filipe.jpg');
+  background-image: url('./images/skatepark2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 } */
+
 html {
   scroll-behavior: smooth;
+}
+
+iframe {
+  border-radius: 5px;
+}
+
+.park-div {
+  height: 500px;
+  background-image: url('./images/bord.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 115px;
 }
 
 .main-header {
@@ -28,16 +41,16 @@ html {
 .card {
 }
 
+.form-btn {
+  margin-top: 10px;
+}
+
 /* Center brand logo */
 .navbar-brand {
   margin-left: auto;
   margin-right: auto;
   width: 150px;
   background-image: url('logo.png');
-}
-
-.form-p {
-  font-size: 1.2em;
 }
 
 .card-img-top {
@@ -47,3 +60,5 @@ html {
   margin-right: auto;
   margin-top: 5px;
 }
+
+/* divider */

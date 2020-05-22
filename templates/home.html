@@ -1,16 +1,19 @@
 {% extends 'base.html' %} {% block content %}
+
 <form class="text-center" method="POST">
   <h4 class="display-4">Find Parks Near you!</h3>
-  <p class="lead">Doesn't include DIYs | US only</p>
+  <p class="lead">US | Doesn't include DIYs | Up to 7</p>
 
-  {% if form.errors %} {{ form.errors }} {% endif %} {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
-  <p class="form-p">
-    {{ field.label }} {{ field }} {% for error in field.errors %} {{ error }} {% endfor %}
-  </p>
-  {% endfor %}
-  <button class="btn btn-md btn-success m-1" type="submit">Search!</button>
-  <br />
-  <iframe class="" src="{{ url_for('map') }}" height="350" width="800"></iframe>
+  <div class="d-inline-block form-group text-center">
+    {% if form.errors %} {{ form.errors }} {% endif %} {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
+      {{ field.label }} {{ field(class_='form-control') }} {% for error in field.errors %} {{ error }} {% endfor %}
+    {% endfor %}
+    <button class="form-btn btn btn-md btn-success" type="submit">Search!</button>
+  </div>
+
+  <div class="park-div">
+    <iframe class="" src="{{ url_for('map') }}" height="280" width="515"></iframe>
+  </div>
 </form>
 
 {% endblock %}
