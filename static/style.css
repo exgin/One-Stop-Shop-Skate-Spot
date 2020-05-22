@@ -3,6 +3,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 } */
+html {
+  scroll-behavior: smooth;
+}
 
 .main-header {
   height: 100vh;
@@ -19,6 +22,10 @@
 
 .rest-text {
   color: #6ff037;
+  height: 50vh;
+}
+
+.card {
 }
 
 /* Center brand logo */
@@ -31,4 +38,12 @@
 
 .form-p {
   font-size: 1.2em;
+}
+
+.card-img-top {
+  height: 65px;
+  width: 65px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
 }

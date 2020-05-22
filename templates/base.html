@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Local search app</title>
+    <title>One Skate</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link
       rel="stylesheet"
@@ -12,6 +12,7 @@
     />
     <link href="static/style.css" rel="stylesheet" />
   </head>
+
   <body>
     <header class='main-header'>
       <!-- Navbar -->
@@ -26,13 +27,13 @@
             <a class="nav-link mx-4 text-white" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#">Learn</a>
+            <a class="nav-link mx-4 text-white" href="#learn">Learn</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#">Pro Teams</a>
+            <a class="nav-link mx-4 text-white" href="#pro-teams">Pro Teams</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#">About</a>
+            <a class="nav-link mx-4 text-white" href="#about">About</a>
         </ul>
       </div>
     </nav>
@@ -41,12 +42,13 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12 text-center">
-          <h3 class="header-text display-2 rest-text">JUST <span style='color: white'>ONE</span> MORE TRY</h3>
+          <h1 class="header-text display-1 rest-text">JUST <span style='color: white'>ONE</span> MORE TRY</h3>
         </div>
       </div>
     </div>
     </header>
-  <hr>
+
+    <hr>
 
     <div class="map-and-form"></div>
       <!-- WTForms -->
@@ -55,6 +57,86 @@
       {% endfor %} {% block content %} {% endblock %}
       <!-- WTForms End-->
     </div>
+
+    <hr>
+
+    <!-- Learn Section -->
+    <div id='learn' class='text-center'>
+      <h4 class='display-4'>Learn How To Skate</h4>
+    </div>
+    <!-- Learn Section End -->
+
+    <hr>
+
+    <!-- Pro Teams Section -->
+    <div id='pro-teams' class='text-center'>
+      <h4 class="display-4">Pro Teams</h4>
+      <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/VANS.png" class="card-img-top" alt="vans">
+            <div class="card-body">
+              <p class="card-text">Vans</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/BAKER.png" class="card-img-top" alt="baker">
+            <div class="card-body">
+              <p class="card-text">Baker</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/THRASHER.png" class="card-img-top" alt="thrasher">
+            <div class="card-body">
+              <p class="card-text">Thrasher</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/DGK.png" class="card-img-top" alt="dgk">
+            <div class="card-body">
+              <p class="card-text">DGK</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/NIKE.png" class="card-img-top" alt="nike">
+            <div class="card-body">
+              <p class="card-text">Nike</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/ELEMENT.png" class="card-img-top" alt="elememt">
+            <div class="card-body">
+              <p class="card-text">Element</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pro Teams Section End -->
+
+    <hr>
+
+    <!-- About Section -->
+    <div id='about' class="text-center">
+      <h4 class='display-4'>About</h4>
+      <p class='lead'>What's the purpose of this website?</p>
+      <p>Skatboarding is a big passion & hobby of mine. It has taught me that repetition is key. </p>
+    </div>
+    <!-- About Section End -->
 
     <!-- Scripts -->
     <script src="static/cityState.js"></script>

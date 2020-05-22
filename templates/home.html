@@ -1,13 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 <form class="text-center" method="POST">
+  <h4 class="display-4">Find Parks Near you!</h3>
+  <p class="lead">Doesn't include DIYs | US only</p>
+
   {% if form.errors %} {{ form.errors }} {% endif %} {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
   <p class="form-p">
     {{ field.label }} {{ field }} {% for error in field.errors %} {{ error }} {% endfor %}
   </p>
   {% endfor %}
-  <button class="btn btn-md btn-success" type="submit">Find!</button>
-  <h3 class="display-4">Parks Near you!</h3>
-  <p class="lead">Doesn't include DIYs</p>
+  <button class="btn btn-md btn-success m-1" type="submit">Search!</button>
+  <br />
   <iframe class="" src="{{ url_for('map') }}" height="350" width="800"></iframe>
 </form>
 

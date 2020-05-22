@@ -17,24 +17,26 @@ db.create_all()
 
 toolbar = DebugToolbarExtension(app)
 
+
 @app.route('/')
 def redirect_to_home():
     """Simple route to redirect user back to our home page"""
     return redirect('/home')
 
+
 @app.route('/home', methods=['GET', 'POST'])
 def homepage():
     """Show homepage, user current location & map of amount of skateparks in the users state"""
     form = Input()
-    
-    if request.method == 'POST':
-        location =  f'{form.city.data}, {form.state.data}'
-        yelp_api(location)
 
+    if request.method == 'POST':
+        location = f'{form.city.data}, {form.state.data}'
+        yelp_api(location)
 
         return redirect('/home')
 
     return render_template('home.html', form=form)
+
 
 @app.route('/city/<state_id>')
 def city(state_id):
@@ -49,9 +51,10 @@ def city(state_id):
         cityObj['city'] = city.city
         cityList.append(cityObj)
 
-    return jsonify({'cities' : cityList})
+    return jsonify({'cities': cityList})
+
 
 @app.route('/map')
 def map():
     """Show map"""
-    return render_template('./map.html') 
+    return render_template('./map.html')
