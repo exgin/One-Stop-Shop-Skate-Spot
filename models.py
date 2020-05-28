@@ -1,10 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
-
-bcrypt = Bcrypt()
-
 
 def connect_db(app):
     """Connect to database."""
@@ -22,5 +18,6 @@ class StateData(db.Model):
     county_name = db.Column(db.Text, nullable=True)
     timezone = db.Column(db.Text, nullable=True)
     id = db.Column(db.Integer, nullable=False, primary_key=True)
+
 
 

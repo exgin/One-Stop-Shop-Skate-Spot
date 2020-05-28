@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, jsonify, session
 from flask_debugtoolbar import DebugToolbarExtension
 from form import Input
 from apis import yelp_api
-from secrets import NEWS_API_KEY, SECRET
+from secrets import SECRET
 from models import connect_db, db, StateData
 import requests
 
