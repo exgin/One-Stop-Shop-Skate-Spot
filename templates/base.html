@@ -48,6 +48,8 @@
       </div>
     </header>
 
+    <hr>
+
     <div id='skate-map' class="container map-and-form"></div>
       <!-- WTForms -->
       {% for msg in get_flashed_messages() %}
@@ -55,6 +57,8 @@
       {% endfor %} {% block content %} {% endblock %}
       <!-- WTForms End-->
     </div>
+
+    <hr>
 
     <!-- Learn Section -->
     <div id='learn'>
@@ -70,7 +74,7 @@
             <div class="card-body">
               <h4 class="card-title">Pushing</h4>
               <p class="card-text">• Let's start off with the foundation, pushing! Pushing allows the skatboarder to actually move. You place all of your weight on your prefered foot (right = goofy, left = regular), and push off the opposite foot. It takes practice.</p>
-              <a href="#" class="btn btn-outline-primary">Lean More!</a>
+              <a target='_blank' href="https://brailleskateboarding.com/how-to-push-on-a-skateboard/" class="btn btn-outline-success">Lean More!</a>
             </div>
           </div>
           <div class="card">
@@ -78,8 +82,8 @@
               <img class="card-img" src="static/images/shuvit.gif" alt="shuvit"></div>
             <div class="card-body">
               <h4 class="card-title">Shuv-it</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This card has supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-outline-primary">Learn More!</a>
+              <p class="card-text">• Shuv-it's are the upmost easiest trick to learn. Anyone can learn this trick within in a day. It's usually done in grass for beginners to overcome commitment issues, but after you get the hang of it, its just a shuv-it!</p>
+              <a target='_blank' href="https://en.nollieskateboarding.com/shove-it/" class="btn btn-outline-success">Learn More!</a>
             </div>
           </div>
           <div class="card">
@@ -87,9 +91,8 @@
               <img class="card-img" src="static/images/manual.gif" alt="Card image cap"></div>
             <div class="card-body">
               <h4 class="card-title">Manual</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. This is a wider card with supporting text below as a natural lead-in
-                to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-outline-primary">Learn Mode!</a>
+              <p class="card-text">• This is a trick that I wish I spent more time on originally learning. Seeing someone hold a manual for a long time is something else. All a manual is, is balancing on the back trucks of your skateboard, whilst the front srping in the air! For more advanced 'technical' skaters, trick is flipped-into, flipped-out-of, held for a long time, just be creative with it!</p>
+              <a target='_blank' href="https://riders.co/en/skate/balance/manual" class="btn btn-outline-success">Learn More!</a>
             </div>
           </div>
           <div class="card">
@@ -97,9 +100,8 @@
               <img class="card-img" src="static/images/hippiejump.gif" alt="Card image cap"></div>
             <div class="card-body">
               <h4 class="card-title">Hippie Jump</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. This is a wider card with supporting text below as a natural lead-in
-                to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-outline-primary">Learn Mode!</a>
+              <p class="card-text">• Probably one of the most basic, straight-foward tricks, the hippie jump. Hippie jump is when you jump on-&-off your board. It's that simple! But simple doesn't mean easy. With hippie jumps, or anything in skating, all you have to do is get over the fear of not committing to a trick.</p>
+              <a target='_blank' href="http://www.skatebook.me/tricks/hippy_jump.htm" class="btn btn-outline-success">Learn More!</a>
             </div>
           </div>
           <div class="card">
@@ -107,9 +109,8 @@
               <img class="card-img" src="static/images/ollie.gif" alt="Card image cap"></div>
             <div class="card-body">
               <h4 class="card-title">Ollie</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. This is a wider card with supporting text below as a natural lead-in
-                to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-outline-primary">Learn Mode!</a>
+              <p class="card-text">• The bread-&-butter staple trick for any skater, the ollie. The ollie opens an extensive amount of tricks in skating. New skaters spend months & years perfecting this trick. Once you have a good ollie, the sky is the limit. It extends into the most known skatboarding trick, the kickflip. So, go out there & practice!</p>
+              <a target='_blank' href="https://www.skatedeluxe.com/blog/en/trick-tips/skateboard/flat/how-to-ollie/" class="btn btn-outline-success">Learn More!</a>
             </div>
           </div>
         <!-- </div> -->
@@ -117,7 +118,7 @@
     </div>  
     <!-- Learn Section End -->
 
-    
+    <hr>
 
     <!-- Pro Teams Section -->
     <div id='pro-teams' class='container text-center'>
@@ -180,6 +181,8 @@
     </div>
     <!-- Pro Teams Section End -->
 
+    <hr>
+
     <!-- About Section -->
     <div id='about' class="text-center">
       <div class="container">
@@ -194,6 +197,7 @@
 
     <!-- Scripts -->
     <script src="static/cityState.js"></script>
+    <script src="static/scrolling.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
