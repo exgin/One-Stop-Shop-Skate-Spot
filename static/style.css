@@ -139,3 +139,29 @@ iframe {
   }
 }
 /* end cards */
+
+.from-left {
+  grid-column: 2 / 3;
+  transform: translateX(-50%);
+}
+
+.from-right {
+  grid-column: 3 / 4;
+  transform: translateX(50%);
+}
+
+/* move into orignal pos */
+.from-left.appear,
+.from-right.appear {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.from-left,
+.from-right {
+  transition: opacity 750ms ease-in, -webkit-transform 650ms ease-in;
+  transition: opacity 750ms ease-in, transform 650ms ease-in;
+  transition: opacity 750ms ease-in, transform 650ms ease-in, -webkit-transform 650ms ease-in;
+  opacity: 0;
+}
