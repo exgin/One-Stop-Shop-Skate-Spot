@@ -16,43 +16,39 @@
   <body>
     <header class='main-header'>
       <!-- Navbar -->
-    <nav class="navbar navbar-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img src="static/images/logo.png" alt="logo" height="150px" /></a>
-      <div class="collapse navbar-collapse " id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#learn">Learn</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#pro-teams">Pro Teams</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-4 text-white" href="#about">About</a>
-        </ul>
-      </div>
-    </nav>
-    <!-- Navbar End -->
+      <nav class="navbar navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="static/images/logo.png" alt="logo" height="150px" /></a>
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link mx-4 text-white" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-4 text-white" href="#learn">Learn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-4 text-white" href="#pro-teams">Pro Teams</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-4 text-white" href="#about">About</a>
+          </ul>
+        </div>
+      </nav>
+      <!-- Navbar End -->
 
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div class="col-12 text-center">
-          <h1 class="header-text display-1 rest-text">JUST <span style='color: white'>ONE</span> MORE TRY</h3>
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <h1 class="header-text display-1 rest-text">JUST <span style='color: white'>ONE</span> MORE TRY</h3>
+          </div>
         </div>
       </div>
-    </div>
     </header>
 
-    <!-- Divider -->
-    <div class="divider"></div>
-    <!-- Divider End -->
-
-    <div class="map-and-form"></div>
+    <div id='skate-map' class="container map-and-form"></div>
       <!-- WTForms -->
       {% for msg in get_flashed_messages() %}
       <div class="alert alert-danger row-6">{{ msg }}</div>
@@ -60,19 +56,71 @@
       <!-- WTForms End-->
     </div>
 
-    <hr>
-
     <!-- Learn Section -->
-    <div id='learn' class='text-center'>
-      <h4 class='display-4'>Learn How To Skate</h4>
-      <p>No matter what age you are, I personally believe you can learn how to skateboard.</p>
-    </div>
+    <div id='learn'>
+      <div class="container">
+        <h4 class='display-4 text-center'>Learn How To Skate</h4>
+        <p class='text-center'>No matter what age you are, I personally believe you can learn how to skateboard. There are many resources available online to help you! Here are some basic tricks to get you started.</p>
+        
+        <div class="card-group learn-cards">
+          <div class="card">
+            <div class="card-img-body">
+            <img class="card-img" src="static/images/pushing.gif" alt="pushing">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Pushing</h4>
+              <p class="card-text">• Let's start off with the foundation, pushing! Pushing allows the skatboarder to actually move. You place all of your weight on your prefered foot (right = goofy, left = regular), and push off the opposite foot. It takes practice.</p>
+              <a href="#" class="btn btn-outline-primary">Lean More!</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-body">
+              <img class="card-img" src="static/images/shuvit.gif" alt="shuvit"></div>
+            <div class="card-body">
+              <h4 class="card-title">Shuv-it</h4>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This card has supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-outline-primary">Learn More!</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-body">
+              <img class="card-img" src="static/images/manual.gif" alt="Card image cap"></div>
+            <div class="card-body">
+              <h4 class="card-title">Manual</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. This is a wider card with supporting text below as a natural lead-in
+                to additional content. This content is a little bit longer.</p>
+              <a href="#" class="btn btn-outline-primary">Learn Mode!</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-body">
+              <img class="card-img" src="static/images/hippiejump.gif" alt="Card image cap"></div>
+            <div class="card-body">
+              <h4 class="card-title">Hippie Jump</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. This is a wider card with supporting text below as a natural lead-in
+                to additional content. This content is a little bit longer.</p>
+              <a href="#" class="btn btn-outline-primary">Learn Mode!</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-body">
+              <img class="card-img" src="static/images/ollie.gif" alt="Card image cap"></div>
+            <div class="card-body">
+              <h4 class="card-title">Ollie</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. This is a wider card with supporting text below as a natural lead-in
+                to additional content. This content is a little bit longer.</p>
+              <a href="#" class="btn btn-outline-primary">Learn Mode!</a>
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>  
     <!-- Learn Section End -->
 
-    <hr>
+    
 
     <!-- Pro Teams Section -->
-    <div id='pro-teams' class='text-center'>
+    <div id='pro-teams' class='container text-center'>
       <h4 class="display-4">Pro Teams</h4>
       <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-4">
@@ -83,6 +131,7 @@
             </div>
           </div>
         </div>
+
         <div class="col mb-4">
           <div class="card">
             <img src="static/images/BAKER.png" class="card-img-top" alt="baker">
@@ -131,16 +180,17 @@
     </div>
     <!-- Pro Teams Section End -->
 
-    <hr>
-
     <!-- About Section -->
     <div id='about' class="text-center">
-      <h4 class='display-4'>About</h4>
-      <p class='lead'>What's the purpose of this website?</p>
-      <p>Skatboarding is a big passion & hobby of mine. Just because skatboarding is a fun activity/sport, doesn't mean it hasn't surprsingly taught me important life lessons. It has taught me that repetition is key & hard work, 
-        does in fact, pay off. When you're grinding for hours, weeks, months, even years for a trick & finally land it, is a feeling like no other. I plan to transfer this lesson throughout any goal/ activity I do in my life.</p>
+      <div class="container">
+        <h4 class='display-4'>About</h4>
+        <p class='lead'>What's the purpose of this website?</p>
+        <p>Skatboarding is a big passion & hobby of mine. Just because skatboarding is a fun activity/sport, doesn't mean it hasn't surprsingly taught me important life lessons. It has taught me that repetition is key & hard work, 
+          does in fact, pay off. When you're grinding for hours, weeks, months, even years for a trick & finally land it, is a feeling like no other. I plan to transfer this lesson throughout any goal/ activity I do in my life.</p>
+      </div>
     </div>
     <!-- About Section End -->
+
 
     <!-- Scripts -->
     <script src="static/cityState.js"></script>
