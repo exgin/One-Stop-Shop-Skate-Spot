@@ -10,8 +10,11 @@ body {
   height: 100%;
 }
 
-iframe {
+.map-style {
   border-radius: 5px;
+  border: none;
+  height: 280px;
+  width: 515px;
 }
 
 #about {
@@ -164,4 +167,32 @@ iframe {
   transition: opacity 750ms ease-in, transform 650ms ease-in;
   transition: opacity 750ms ease-in, transform 650ms ease-in, -webkit-transform 650ms ease-in;
   opacity: 0;
+}
+
+.fab,
+.fas {
+  cursor: pointer;
+  margin: 35px;
+  color: white;
+}
+
+.fab:hover {
+  color: black;
+  transition: 250ms ease-in;
+}
+
+.fas:hover {
+  color: black;
+  transition: 250ms ease-in;
+}
+
+.fa-ellipsis-h {
+  margin: 0;
+  color: black;
+}
+
+.more-skate-teams:hover {
+  filter: brightness(50%);
+  color: #6ff037;
+  transition: 250ms ease-in;
 }
