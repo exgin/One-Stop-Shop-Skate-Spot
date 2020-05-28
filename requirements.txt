@@ -20,7 +20,7 @@ future==0.18.2
 geocoder==1.38.1
 googlemaps==4.3.1
 gunicorn==20.0.4
-httplib2==0.17.3
+httplib2==0.18.0
 idna==2.9
 iso3166==1.0.1
 itsdangerous==1.1.0
