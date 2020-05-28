@@ -1,4 +1,4 @@
-One-Stop-Skate-Spot
+# One-Stop-Skate-Spot
 
 This web application condenses anything to do with skating, for the new beginner skater, or for a more advanceded skater looking for new parks to skate at.
 
