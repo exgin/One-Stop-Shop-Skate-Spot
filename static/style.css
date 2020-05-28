@@ -60,6 +60,10 @@ body {
   margin-top: 10px;
 }
 
+.skate-form {
+  padding-top: 20px;
+}
+
 /* Center brand logo */
 .navbar-brand {
   margin-left: auto;

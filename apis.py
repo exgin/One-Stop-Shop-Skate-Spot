@@ -1,22 +1,11 @@
-from newsapi import NewsApiClient
 from secrets import NEWS_API_KEY, client_id, api_key
 import requests
 import pandas
 import folium
 import os
 
-# -News API-
-###########################################
-newsapi = NewsApiClient(api_key=NEWS_API_KEY)
-
-all_articles = newsapi.get_top_headlines(q='skateboarding',
-                                         language='en',
-                                         page=1)
-
 # -Yelp API-
 ###########################################
-
-
 def yelp_api(location):
     term = 'Skatepark'
     location = location

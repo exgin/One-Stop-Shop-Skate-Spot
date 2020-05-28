@@ -35,7 +35,7 @@ def homepage():
 
         return redirect('/home#skate-map')
 
-    return render_template('home.html', form=form)
+    return render_template('skating-form.html', form=form)
 
 
 @app.route('/city/<state_id>')
