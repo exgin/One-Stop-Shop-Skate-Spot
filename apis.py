@@ -1,4 +1,4 @@
-from secrets import client_id, api_key
+from secrets import api_key
 import requests
 import pandas
 import folium
