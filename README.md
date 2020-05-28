@@ -12,7 +12,6 @@ This web application condenses anything to do with skating, for the new beginner
   - Python w/ Flask
   - Postgres
 - Version Control & Deployment
-
   - Heroku
   - Github
 
