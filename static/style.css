@@ -189,7 +189,7 @@ body {
 .fab,
 .fas {
   cursor: pointer;
-  margin: 35px;
+  margin: 10px 35px 35px 35px;
   color: white;
 }
 
