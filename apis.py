@@ -1,4 +1,5 @@
-from secrets import api_key
+# setup for heroku
+# from secrets import api_key
 import requests
 import pandas
 import folium
@@ -14,7 +15,7 @@ def yelp_api(location):
     url = 'https://api.yelp.com/v3/businesses/search'
 
     headers = {
-        'Authorization': 'Bearer {}'.format(api_key),
+        'Authorization': 'Bearer {}'.format(os.environ.get(api_key)),
     }
     url_params = {
         'term': term.replace(' ', '+'),
