@@ -15,7 +15,7 @@ app.config["SECRET_KEY"] = SECRET
 connect_db(app)
 db.create_all()
 
-toolbar = DebugToolbarExtension(app)
+# toolbar = DebugToolbarExtension(app)
 
 
 @app.route('/')
@@ -33,7 +33,7 @@ def homepage():
         location = f'{form.city.data}, {form.state.data}'
         yelp_api(location)
 
-        return redirect('/home')
+        return redirect('/home#skate-map')
 
     return render_template('home.html', form=form)
 
