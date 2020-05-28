@@ -64,11 +64,24 @@ body {
   padding-top: 20px;
 }
 
+.nav-link:hover {
+  background-color: #6ff037;
+  border-radius: 5px;
+  filter: brightness(50%);
+  padding: 10px;
+  transition: 300ms ease-in;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
 /* Center brand logo */
-.navbar-brand {
+.logo {
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 150px;
+  height: 150px;
   background-image: url('logo.png');
 }
 

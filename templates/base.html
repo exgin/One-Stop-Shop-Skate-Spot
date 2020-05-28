@@ -15,32 +15,36 @@
 
   <body>
     <header class='main-header'>
+
+      <img class='logo' src="static/images/logo.png" alt="logo"/>
+
       <!-- Navbar -->
-      <nav class="navbar navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar fixed-top navbar-expand-xl navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="static/images/logo.png" alt="logo" height="150px" /></a>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse navbar-light" id="navbarNav">
+          <ul class="navbar-nav align-items-start">
             <li class="nav-item">
-              <a class="nav-link mx-4 text-white" href="#">Home</a>
+              <a class="nav-link mx-1" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-4 text-white" href="#skate-map">Map</a>
+              <a class="nav-link mx-1" href="#skate-map">Map</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-4 text-white" href="#learn">Learn</a>
+              <a class="nav-link mx-1" href="#learn">Learn</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-4 text-white" href="#pro-teams">Pro Teams</a>
+              <a class="nav-link mx-1" href="#pro-teams">Pro Teams</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-4 text-white" href="#about">About</a>
+              <a class="nav-link mx-1" href="#about">About</a>
           </ul>
         </div>
       </nav>
       <!-- Navbar End -->
+
+      <!-- Main quote -->
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-12 text-center">
@@ -48,9 +52,12 @@
           </div>
         </div>
       </div>
+      <!-- Main quote end -->
+
     </header>
 
     <main>
+      
     <!-- Skate Map -->
     <div id='skate-map' class="container map-and-form"></div>
       <!-- WTForms -->
