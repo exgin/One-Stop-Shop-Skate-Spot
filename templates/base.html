@@ -17,7 +17,9 @@
     <header class='main-header'>
 
       <img class='logo' src="static/images/logo.png" alt="logo"/>
-
+      
+      {% block errpage %}
+      
       <!-- Navbar -->
       <nav class="navbar fixed-top navbar-expand-xl navbar-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -228,8 +230,9 @@
       </div>
     </div>
     <!-- About Section End -->
-
+    {% endblock %}
   </main>
+
     <!-- Scripts -->
     <script src="static/cityState.js"></script>
     <script src="static/scrolling.js"></script>

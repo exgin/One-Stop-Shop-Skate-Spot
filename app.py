@@ -58,3 +58,7 @@ def city(state_id):
 def map():
     """Show map"""
     return render_template('./map.html')
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html")

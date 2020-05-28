@@ -4,7 +4,7 @@ import pandas
 import folium
 import os
 
-# -Yelp API-
+# Yelp API
 ###########################################
 def yelp_api(location):
     term = 'Skatepark'
