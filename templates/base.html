@@ -50,7 +50,6 @@
     <hr>
 
     <main>
-      
     <div id='skate-map' class="container map-and-form"></div>
       <!-- WTForms -->
       {% for msg in get_flashed_messages() %}
@@ -124,7 +123,8 @@
     <!-- Pro Teams Section -->
     <div id='pro-teams' class='container text-center'>
       <h4 class="display-4">Pro Teams</h4>
-      <div class="row row-cols-1 row-cols-md-3">
+      <div class="row row-cols-1 row-cols-md-4">
+
         <div class="col mb-4">
           <div class="card">
             <img src="static/images/VANS.png" class="card-img-top" alt="vans">
@@ -178,6 +178,26 @@
             </div>
           </div>
         </div>
+
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/TOYMACHINE.png" class="card-img-top" alt="toymachine">
+            <div class="card-body">
+              <p class="card-text">Toy Machine</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card">
+            <img src="static/images/REAL.png" class="card-img-top" alt="real">
+            <div class="card-body">
+              <p class="card-text">Real</p>
+            </div>
+          </div>
+        </div>
+
+        <p>View more professional skate teams!</p>
       </div>
     </div>
     <!-- Pro Teams Section End -->
