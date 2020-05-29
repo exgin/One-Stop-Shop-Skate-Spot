@@ -1,8 +1,8 @@
+# from secrets import SECRET, HEROKU_SECRET_KEY
 from flask import Flask, render_template, request, redirect, jsonify, session
 from flask_debugtoolbar import DebugToolbarExtension
 from form import Input
 from apis import yelp_api
-from secrets import SECRET, HEROKU_SECRET_KEY
 from models import connect_db, db, StateData
 import requests
 import os
@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', "postgres:///city_state")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
-app.config["SECRET_KEY"] = os.environ.get(HEROKU_SECRET_KEY, SECRET)
+app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
 
 connect_db(app)
 db.create_all()
