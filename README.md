@@ -2,6 +2,10 @@
 
 This web application condenses anything to do with skating, for the new beginner skater, or for a more advanceded skater looking for new parks to skate at.
 
+## Gif of One-Stop-Skate-Spot
+
+![Demo](websitedemo.gif)
+
 ## Stack
 
 - FrontEnd
