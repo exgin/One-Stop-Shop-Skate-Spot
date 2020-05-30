@@ -1,6 +1,6 @@
 # One-Stop-Skate-Spot
 
-This web application condenses anything to do with skating, for the new beginner skater, or for a more advanceded skater looking for new parks to skate at.
+This web application condenses anything to do with skating. For the new beginner skater, or for a more intermediate skater, this web application has it!
 
 ## Live Gif of One-Stop-Skate-Spot
 
