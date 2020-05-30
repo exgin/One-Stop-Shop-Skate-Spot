@@ -67,7 +67,6 @@ CREATE SEQUENCE public.states_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
 --
 -- Name: states_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
