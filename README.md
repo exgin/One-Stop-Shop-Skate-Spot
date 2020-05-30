@@ -24,8 +24,8 @@ Demo Link: https://one-stop-skate-spot-exgin.herokuapp.com/home
 ## Features
 
 - Starting out skate tricks for beginners.
-- View up to 7 skatboarding parks near your location.
-- See professional skatboarding teams & view more details about that specific team.
+- View up to 7 skateboarding parks near your location.
+- See professional skateboarding teams & view more details about that specific team.
 
 ## Tools Used
 
