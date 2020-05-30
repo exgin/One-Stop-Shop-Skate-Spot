@@ -32,7 +32,7 @@ Demo Link: https://one-stop-skate-spot-exgin.herokuapp.com/home
 - [VSCode](https://code.visualstudio.com/): my main IDE used for the entire project
 - [Yelp API](https://www.yelp.com/developers/documentation/v3/business_search): I needed a way to both get the location of a user & the location of skate parks near the user. I originally went with Google's API; however, I was having API key errors getting it to work. Yelp's API is cleaner & easier to use in my opinion.
 - [Foluim](https://python-visualization.github.io/folium/): to visualize the parks for the user, I ended up wanting to plot the points on a map, this is where folluim came in. Additionally, I wanted to plot the average skate park within each state, just incase Yelp didn't pick up any smaller parks.
-- [SQLAlchemy](https://www.sqlalchemy.org/): SQLA is my prefered ORM. This is used to connect my database results for every city/state within the United States. I made my own API, which I had JavaScript fetch it's results.
+- [SQLAlchemy](https://www.sqlalchemy.org/): SQLA is my prefered ORM. This is used to connect my database results for every city/state within the United States. I made my own API, which I had JavaScript fetch its results.
 
 ## User Flow
 
