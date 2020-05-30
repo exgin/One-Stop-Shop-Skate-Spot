@@ -17,6 +17,7 @@ class StateData(db.Model):
     state_name = db.Column(db.Text, nullable=False)
     county_name = db.Column(db.Text, nullable=True)
     timezone = db.Column(db.Text, nullable=True)
+    population = db.Column(db.Integer, nullable=False)
     id = db.Column(db.Integer, nullable=False, primary_key=True)
 
 
