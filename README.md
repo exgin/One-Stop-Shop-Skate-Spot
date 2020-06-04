@@ -39,3 +39,11 @@ Demo Link: https://one-stop-skate-spot-exgin.herokuapp.com/home
 1. You can find skate parks near you
 2. You can browse professional skateboarding teams
 3. If you want to begin skating, there are listed tricks I personally recommeded to get started with.
+
+## FAQ
+- How much does it cost for a complete skatebaord?
+  * A normal complete skateboard costs on average $120 to start off. I would highly recommend against buying a 'Walmart board'. They're cheap and can actually hurt you more than buying a stable skateboard. You can purchase boards from pro team brands listed on my website to support them.
+- How long does it take to get 'good' at skateboarding?
+  * There is not steady timeline to getting good. Everything is relative in skateboarding. Just keep going & you'll eventually get to a point where you consider yourself decent! 
+- Where is AR, Arkanas at on the map? 
+  * Yelp's API didn't seem to like that state. Until then, I will update the site when that bug is fixed on their end.
