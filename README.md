@@ -36,9 +36,9 @@ Demo Link: https://one-stop-skate-spot-exgin.herokuapp.com/home
 
 ## User Flow
 
-1. You can find skate parks near you
-2. You can browse professional skateboarding teams
-3. If you want to begin skating, there are listed tricks I personally recommeded to get started with.
+1. Users can find skate parks near you
+2. Users can browse professional skateboarding teams
+3. If a user want to begin skating, there are listed tricks I personally recommeded to get started with.
 
 ## FAQ
 - How much does it cost for a complete skatebaord?
