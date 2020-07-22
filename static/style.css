@@ -8,6 +8,7 @@ html,
 body {
   scroll-behavior: smooth;
   height: 100%;
+  margin: 0;
 }
 
 .map-style {
@@ -53,7 +54,8 @@ body {
 
 .rest-text {
   color: #6ff037;
-  height: 50vh;
+  height: 100vh;
+  position: relative;
 }
 
 .form-btn {
