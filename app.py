@@ -1,10 +1,12 @@
 # from secrets import SECRET, HEROKU_SECRET_KEY
-from flask import Flask, render_template, request, redirect, jsonify, session
-from flask_debugtoolbar import DebugToolbarExtension
-from form import Input
+from flask import Flask, render_template, request, redirect, jsonify, session, flash, g
+from sqlalchemy.exc import IntegrityError
+from form import Input, RegisterForm, LoginForm, UserParkInput, CommentForm
 from apis import yelp_api
-from models import connect_db, db, StateData
+from models import connect_db, db, StateData, User
 import os
+from flask_sqlalchemy import SQLAlchemy
+# from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
@@ -18,6 +20,28 @@ connect_db(app)
 db.create_all()
 
 # toolbar = DebugToolbarExtension(app)
+CURR_USER_KEY = "curr_user"
+
+
+def do_login(user):
+    """Log in a user"""
+    session[CURR_USER_KEY] = user.id
+
+
+def do_logout(user):
+    """Logout a user"""
+
+    if CURR_USER_KEY in session:
+        del session[CURR_USER_KEY]
+
+
+@app.before_request
+def add_user_to_g():
+    """If logged in, add to global Flask"""
+    if CURR_USER_KEY in session:
+        g.user = User.query.get(session[CURR_USER_KEY])
+    else:
+        g.user = None
 
 
 @app.route('/')
@@ -44,7 +68,52 @@ def homepage():
 def addpark():
     """Form & Page to add a park, if not logged in or signed up, have a pop-up login"""
 
-    return render_template('login-signup.html')
+    # show all park posts
+
+    return render_template('addpark.html')
+
+
+@app.route('/register', methods=["GET", "POST"])
+def register():
+    """Register a user"""
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        try:
+            user = User.register(
+                first_name=form.first_name.data,
+                last_name=form.last_name.data,
+                username=form.username.data,
+                password=form.password.data
+            )
+            db.session.commit()
+
+        except IntegrityError:
+            flash("Username already taken, try a different one!", "danger")
+            return render_template('register.html', form=form)
+
+        do_login(user)
+
+        return redirect('/addpark')
+    else:
+        return render_template('register.html', form=form)
+
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    """Login a user"""
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user = User.authenticate(form.username.data, form.password.data)
+
+        if user:
+            do_login(user)
+            flash(f"Successfully logged in! Weclome {user.first_name}")
+            return redirect('/addpark')
+        flash("Wrong username/password", "danger")
+
+    return render_template("login.html", form=form)
 
 
 @app.route('/city/<state_id>')

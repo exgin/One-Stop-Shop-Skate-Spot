@@ -20,6 +20,10 @@ class Input(FlaskForm):
 
 class RegisterForm(FlaskForm):
     """Allow users to registr to participate in creaing custom skate park locations"""
+    first_name = StringField("First Name", validators=[
+        InputRequired(), Length(min=3)])
+    last_name = StringField("Last Name", validators=[
+        InputRequired(), Length(min=3)])
     username = StringField("Username", validators=[
                            InputRequired(), Length(min=1, max=20)])
     password = PasswordField("Password", validators=[
@@ -42,3 +46,8 @@ class UserParkInput(FlaskForm):
                                 InputRequired(), Length(min=5)])
     address = StringField("Title", validators=[
         InputRequired(), Length(max=200)])
+
+
+class CommentForm(FlaskForm):
+    """Form for user's to post comments"""
+    comment = TextAreaField('comment', validators=[InputRequired()])
