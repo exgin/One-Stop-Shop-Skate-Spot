@@ -2,8 +2,7 @@
 
 <form class="text-center skate-form" method="POST">
   <h4 class="display-4">Find Parks Near you!</h3>
-  <p class="lead">US | Doesn't include DIYs | Up to 7</p>
-
+  <p class="lead">US | Up to 7 Parks</p> 
   <div class="d-inline-block form-group text-center">
     {% if form.errors %} {{ form.errors }} {% endif %} {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %}
       {{ field.label }} {{ field(class_='form-control') }} {% for error in field.errors %} {{ error }} {% endfor %}
@@ -13,6 +12,10 @@
 
   <div class="park-div">
     <iframe class="map-style" allowfullscreen src="{{ url_for('map') }}"></iframe>
+  </div>
+
+  <div>
+    <h5 class='display-5'>Don't see your park? Sign up or Login to add one!</h5>
   </div>
 </form>
 

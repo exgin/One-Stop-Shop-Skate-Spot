@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField
-from wtforms.validators import InputRequired
+from wtforms import SelectField, StringField, PasswordField, TextAreaField
+from wtforms.validators import InputRequired, Length
 
 # Yelp having errors with AR, key error
 states = ["AL", "AK", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
@@ -16,3 +16,29 @@ class Input(FlaskForm):
     state = SelectField('Your State:', choices=[
         (st, st) for st in states], validators=[InputRequired()])
     city = SelectField('Your City:', choices=[], validators=[InputRequired()])
+
+
+class RegisterForm(FlaskForm):
+    """Allow users to registr to participate in creaing custom skate park locations"""
+    username = StringField("Username", validators=[
+                           InputRequired(), Length(min=1, max=20)])
+    password = PasswordField("Password", validators=[
+                             InputRequired(), Length(min=4)])
+
+
+class LoginForm(FlaskForm):
+    """Have user log in to use UserParkInput form"""
+    username = StringField("Username", validators=[
+                           InputRequired(), Length(max=30)])
+    password = StringField("Password", validators=[
+                           InputRequired(), Length(min=(4))])
+
+
+class UserParkInput(FlaskForm):
+    """Get user's custom park location"""
+    park_name = StringField("Park Name", validators=[
+                            InputRequired(), Length(max=100)])
+    description = TextAreaField("Park Description", validators=[
+                                InputRequired(), Length(min=5)])
+    address = StringField("Title", validators=[
+        InputRequired(), Length(max=200)])

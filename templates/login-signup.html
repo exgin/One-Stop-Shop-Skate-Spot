@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {%block quote%} {% block nav %}
+<nav class="navbar fixed-top navbar-expand-xl navbar-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-light" id="navbarNav">
+    <ul class="navbar-nav align-items-start">
+      <li class="nav-item">
+        <h3><a class="nav-link mx-1" href="/">Go Back Home</a></h3>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
+<h1 class="rest-text display-1 text-center">JUST <span style="color: white">ONE </span>MORE <span style="color: white">PARK</span></h1>
+{%endblock%} {% block addpark %}
+
+<div class="container"> list park /w comments /w rating (+1 -1) </div>
+
+<div>add park form</div>
+
+{% endblock %}

@@ -2,11 +2,13 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 def connect_db(app):
     """Connect to database."""
 
     db.app = app
     db.init_app(app)
+
 
 class StateData(db.Model):
     """States/citys"""
@@ -19,6 +21,3 @@ class StateData(db.Model):
     timezone = db.Column(db.Text, nullable=True)
     population = db.Column(db.Integer, nullable=False)
     id = db.Column(db.Integer, nullable=False, primary_key=True)
-
-
-

@@ -19,8 +19,10 @@
       <img class='logo' src="static/images/logo.png" alt="logo"/>
       
       {% block errpage %}
+
       
       <!-- Navbar -->
+      {% block nav %}
       <nav class="navbar fixed-top navbar-expand-xl navbar-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,16 +43,27 @@
             </li>
             <li class="nav-item">
               <a class="nav-link mx-1" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-1" href="/addpark">Add Park</a>
+            </li>
           </ul>
         </div>
       </nav>
+      {% endblock %}
+
       <!-- Navbar End -->
 
       <!-- Main quote -->
+      {% block quote %}
         <h1 class="rest-text display-1 text-center">JUST <span style='color: white'>ONE</span> MORE TRY</h1>
+        {% endblock %}
       <!-- Main quote end -->
 
     </header>
+
+
+    {% block addpark %}
 
     <main>
       
@@ -225,6 +238,8 @@
     </div>
     <!-- About Section End -->
     {% endblock %}
+    {% endblock %}
+    
   </main>
 
     <!-- Scripts -->

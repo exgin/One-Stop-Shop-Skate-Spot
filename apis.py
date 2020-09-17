@@ -9,6 +9,8 @@ yelp_api_key = os.environ.get('yelp_api_key')
 
 # Yelp API
 ###########################################
+
+
 def yelp_api(location):
     term = 'Skatepark'
     location = location

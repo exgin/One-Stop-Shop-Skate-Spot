@@ -4,11 +4,11 @@ from flask_debugtoolbar import DebugToolbarExtension
 from form import Input
 from apis import yelp_api
 from models import connect_db, db, StateData
-import requests
 import os
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', "postgres:///city_state")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    'DATABASE_URL', "postgres:///city_state")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
 app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
@@ -40,6 +40,13 @@ def homepage():
     return render_template('skating-form.html', form=form)
 
 
+@app.route('/addpark', methods=['GET', 'POST'])
+def addpark():
+    """Form & Page to add a park, if not logged in or signed up, have a pop-up login"""
+
+    return render_template('login-signup.html')
+
+
 @app.route('/city/<state_id>')
 def city(state_id):
     """Call route when the select changes"""
@@ -60,6 +67,7 @@ def city(state_id):
 def map():
     """Show map"""
     return render_template('./map.html')
+
 
 @app.errorhandler(404)
 def not_found(e):
