@@ -15,6 +15,7 @@ def connect_db(app):
 
 class StateData(db.Model):
     """States/citys"""
+
     __tablename__ = "states"
 
     city = db.Column(db.Text, nullable=False)
@@ -28,6 +29,7 @@ class StateData(db.Model):
 
 class User(db.Model):
     """User's table"""
+
     __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -36,7 +38,8 @@ class User(db.Model):
     username = db.Column(db.Text, nullable=False, unique=True)
     password = db.Column(db.Text, nullable=False, unique=True)
 
-    comments = db.relationship('Comments')
+    # COMMENT OUT FOR NOW
+    # comments = db.relationship('Comments')
 
     @classmethod
     def register(cls, first_name, last_name, username, password):
@@ -63,21 +66,25 @@ class User(db.Model):
 
 class Comments(db.Model):
     """Comments for park posts"""
+
     __tablename__ = "comments"
 
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, nullable=False,
                           default=datetime.utcnow())
-    user_id = db.Column(db.Integer, db.ForeignKey(
-        'user.id', ondelete="cascade"))
 
-    # One:Many | one user can have many comments
-    user = db.relationship('User')
+    # COMMENT OUT FOR NOW
+    # user_id = db.Column(db.Integer, db.ForeignKey(
+    #     'user.id', ondelete="cascade"))
+
+    # # One:Many | one user can have many comments
+    # user = db.relationship('User')
 
 
 class ParkPost(db.Model):
     """Park's post that stores the comments & likes"""
+
     __tablename__ = 'park_post'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -85,21 +92,24 @@ class ParkPost(db.Model):
     description = db.Column(db.Text, nullable=False)
     address = db.Column(db.Text, nullable=False)
 
+    # COMMENT OUT FOR NOW
     # park's should be assocaited with user's that posted it
-    user_id = db.Column(db.Integer, db.ForeignKey(
-        'user.id', ondelete="cascade"))
-    comments = db.Column(db.Text, db.ForeignKey(
-        'comments.id', ondelete="cascade"))
+    # user_id = db.Column(db.Integer, db.ForeignKey(
+    #     'user.id', ondelete="cascade"))
+    # comments = db.Column(db.Text, db.ForeignKey(
+    #     'comments.id', ondelete="cascade"))
 
 
 class Likes(db.Model):
     """Likes for the parks"""
+
     __tablename__ = "likes"
 
     id = db.Column(db.Integer, primary_key=True)
 
+    # COMMENT OUT FOR NOW
     # make relationship with the user & post, so user's can like the park post
-    user_id = db.Column(db.Integer, db.ForeignKey(
-        'user.id', ondelete="cascade"))
-    park_post_id = db.Column(db.Integer, db.ForeignKey(
-        'park_post.id', ondelete="cascade"), unique=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey(
+    #     'user.id', ondelete="cascade"))
+    # park_post_id = db.Column(db.Integer, db.ForeignKey(
+    #     'park_post.id', ondelete="cascade"), unique=True)

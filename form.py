@@ -19,7 +19,7 @@ class Input(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    """Allow users to registr to participate in creaing custom skate park locations"""
+    """Allow users to reg to participate in creaing custom skate park locs"""
     first_name = StringField("First Name", validators=[
         InputRequired(), Length(min=3)])
     last_name = StringField("Last Name", validators=[

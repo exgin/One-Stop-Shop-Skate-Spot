@@ -3,9 +3,8 @@ from flask import Flask, render_template, request, redirect, jsonify, session, f
 from sqlalchemy.exc import IntegrityError
 from form import Input, RegisterForm, LoginForm, UserParkInput, CommentForm
 from apis import yelp_api
-from models import connect_db, db, StateData, User
+from models import connect_db, db, StateData, User, Comments, Likes, ParkPost
 import os
-from flask_sqlalchemy import SQLAlchemy
 # from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
@@ -15,7 +14,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
 app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-
 connect_db(app)
 db.create_all()
 
