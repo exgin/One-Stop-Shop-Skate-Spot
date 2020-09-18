@@ -25,25 +25,31 @@
   <h1 class="display-1 text-light"><span style="color: #6ff037">JUST</span> ONE <span style="color: #6ff037">MORE</span> PARK</h1> </div
 >{%endblock%} {% block addpark %}
 
-<div>
-  <ul>
-    {% if not g.user %}
-    <li><a href="/register">Register</a></li>
-    <li><a href="/login">Log in</a></li>
-    {% else %}
-    <li><a href="/logout">Log Out</a></li>
-    {% endif %}
-  </ul>
+<div class="container">
+  {% if not g.user %}
+  <a class="m-2 btn btn-primary" href="/register">Register</a>
+  <a class="m-2 btn btn-outline-primary" href="/login">Log in</a>
+  {% else %}
+  <a class="btn btn-danger m-2" href="/logout">Log Out</a>
+  {% endif %}
 </div>
 
 <div class="container">
   <h4 class="display-4 text-center">All Parks</h4>
   {% for parks in all_parks %}
-  <p>{{parks.park_name}}</p>
-  <p>{{parks.description}}</p>
-  <p>{{parks.address}}</p>
-  <p>{{parks.image}}</p>
-  <p>{{parks.comments}}</p>
+  <div class="parks container text-center">
+    <div class="card card-accent-primary mb-3" style="max-width: 18rem">
+      <div class="card-header">{{parks.park_name}}</div>
+      <div class="card-body text-primary">
+        <h5 class="card-title">{{parks.address}}</h5>
+        <p class="card-text">{{parks.description}}</p>
+      </div>
+      <hr />
+      <p class="lead">* comments * </p>
+      <p>{{parks.comments}}</p>
+      <img src="{{parks.image}}" />
+    </div>
+  </div>
   {% endfor %}
 </div>
 

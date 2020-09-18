@@ -47,6 +47,12 @@
             <li class="nav-item">
               <a class="nav-link mx-1" href="/addpark">Add Park</a>
             </li>
+            {% if g.user %}
+            <li class="nav-item">
+              <a class="nav-link mx-1" href="/logout">Log Out</a>
+            </li>
+            {% else %}
+            {% endif %}
           </ul>
         </div>
       </nav>

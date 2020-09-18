@@ -68,6 +68,8 @@ def homepage():
 def addpark():
     """Form & Page to add a park, if not logged in or signed up, have a pop-up login"""
 
+    DEFAULT_PARK_PIC = "/static/images/defaultPark.jpg"
+
     all_parks = ParkPost.query.all()
     comment = CommentForm()
     park = UserParkInput()
@@ -78,7 +80,7 @@ def addpark():
                 park_name=park.park_name.data,
                 description=park.description.data,
                 address=park.address.data,
-                image=park.image.data
+                image=park.image.data or DEFAULT_PARK_PIC
             )
             db.session.add(park_post)
             db.session.commit()
