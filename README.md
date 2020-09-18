@@ -24,6 +24,8 @@ Demo Link: https://one-stop-skate-spot-exgin.herokuapp.com/home
 
 ## Features
 
+- Users can log in/ register to add their own park
+- Users can like other parks other users posted
 - Lists starting skate tricks for beginners.
 - Able to view up to 7 skateboarding parks near your location.
 - See professional skateboarding teams & view more details about that specific team.
