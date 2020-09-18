@@ -4,15 +4,14 @@
   <div class="alert alert-danger row-6">{{ msg }}</div>
   {% endfor %} {% block content %} {% endblock %}
 
-    <form method="POST" id='user_register'>
-        {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
-        <span class="text-danger">{{ error }}</span>
-        {% endfor %} {{ field(placeholder=field.label.text, class="form-control") }} {% endfor %}
-    
-        <button type="submit" class="btn btn-success">Sign up!</button>
-        <a href="/" class="btn btn-info">Cancel</button>
-      </form>
-
+  <form method="POST" id='user_register'>
+      {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
+      <span class="text-danger">{{ error }}</span>
+      {% endfor %} {{ field(placeholder=field.label.text, class="form-control") }} {% endfor %}
+  
+      <button type="submit" class="btn btn-success">Sign up!</button>
+      <a href="/" class="btn btn-info">Cancel</button>
+  </form>
 </div>
 
 {% endblock %}

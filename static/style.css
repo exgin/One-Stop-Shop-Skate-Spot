@@ -39,6 +39,14 @@ body {
   padding: 115px;
 }
 
+.white {
+  color: white;
+}
+
+.rest-text {
+  color: #6ff037;
+}
+
 .main-header {
   height: 100vh;
   min-height: 500px;
@@ -50,12 +58,6 @@ body {
 
 .img-header {
   filter: brightness(50%);
-}
-
-.rest-text {
-  color: #6ff037;
-  height: 100vh;
-  position: relative;
 }
 
 .form-btn {
