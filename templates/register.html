@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% block errpage %}
 <div class="container">
+  {% for msg in get_flashed_messages() %}
+  <div class="alert alert-danger row-6">{{ msg }}</div>
+  {% endfor %} {% block content %} {% endblock %}
 
     <form method="POST" id='user_register'>
         {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
@@ -10,27 +13,6 @@
         <a href="/" class="btn btn-info">Cancel</button>
       </form>
 
-  <!-- <form>
-    <div class="form-group text-light">
-      <label for="first_name">First Name</label>
-      <input type="text" class="form-control" id="first_name" placeholder="first name" />
-    </div>
-    <div class="form-group text-light">
-      <label for="last_name">Last Name</label>
-      <input type="text" class="form-control" id="last_name" placeholder="last name" />
-    </div>
-    <div class="form-group text-light">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="username" />
-    </div>
-    <div class="form-group text-light">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="password" />
-    </div>
-    <button type="submit" class="btn btn-success">Sign Up!</button>
-    <a href="/" class="btn btn-info">Cancel</button>
-    <small><a class="text-light" href="/login"> Already have an account? Login!</a></small>
-  </form> -->
 </div>
 
 {% endblock %}

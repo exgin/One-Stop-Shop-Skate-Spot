@@ -32,11 +32,11 @@ class StateData(db.Model):
 class User(db.Model):
     """User's table"""
 
-    __tablename__ = "user"
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.Text, nullable=False, unique=True)
-    last_name = db.Column(db.Text, nullable=False, unique=True)
+    first_name = db.Column(db.Text, nullable=False)
+    last_name = db.Column(db.Text, nullable=False)
     username = db.Column(db.Text, nullable=False, unique=True)
     password = db.Column(db.Text, nullable=False, unique=True)
 

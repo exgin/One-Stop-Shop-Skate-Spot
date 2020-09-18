@@ -34,8 +34,8 @@ class LoginForm(FlaskForm):
     """Have user log in to use UserParkInput form"""
     username = StringField("Username", validators=[
                            InputRequired(), Length(max=30)])
-    password = StringField("Password", validators=[
-                           InputRequired(), Length(min=(4))])
+    password = PasswordField("Password", validators=[
+        InputRequired(), Length(min=(4))])
 
 
 class UserParkInput(FlaskForm):
