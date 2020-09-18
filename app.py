@@ -14,10 +14,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
 app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+
 connect_db(app)
 db.create_all()
 
 # toolbar = DebugToolbarExtension(app)
+
 CURR_USER_KEY = "curr_user"
 
 
@@ -84,6 +86,7 @@ def register():
                 username=form.username.data,
                 password=form.password.data
             )
+            db.session.add(user)
             db.session.commit()
 
         except IntegrityError:

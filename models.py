@@ -5,6 +5,8 @@ from datetime import datetime
 bcrypt = Bcrypt()
 db = SQLAlchemy()
 
+# Try to re-create error by building a small mini backend app & compare the versions in requirements.txt!
+
 
 def connect_db(app):
     """Connect to database."""
