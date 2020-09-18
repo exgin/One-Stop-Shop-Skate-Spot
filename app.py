@@ -68,9 +68,31 @@ def homepage():
 def addpark():
     """Form & Page to add a park, if not logged in or signed up, have a pop-up login"""
 
-    # show all park posts
+    all_parks = ParkPost.query.all()
+    comment = CommentForm()
+    park = UserParkInput()
 
-    return render_template('addpark.html')
+    if park.validate_on_submit():
+        try:
+            park_post = ParkPost(
+                park_name=park.park_name.data,
+                description=park.description.data,
+                address=park.address.data,
+                image=park.image.data
+            )
+            db.session.add(park_post)
+            db.session.commit()
+
+        except IntegrityError:
+            flash("Check input", "danger")
+            return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
+            # show all park posts
+
+        flash("Park added!", "success")
+
+        return redirect('/addpark')
+
+    return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
 
 
 @app.route('/register', methods=["GET", "POST"])

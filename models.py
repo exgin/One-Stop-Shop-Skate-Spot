@@ -92,11 +92,12 @@ class ParkPost(db.Model):
     park_name = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     address = db.Column(db.Text, nullable=False)
+    image = db.Column(db.Text, default="/static/images/defaultPark.jpg")
 
     # park's should be assocaited with user's that posted it
     user_id = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="cascade"))
-    comments = db.Column(db.Text, db.ForeignKey(
+    comments = db.Column(db.Integer, db.ForeignKey(
         'comments.id', ondelete="cascade"))
 
 

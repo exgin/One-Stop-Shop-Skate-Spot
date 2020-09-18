@@ -25,10 +25,6 @@
   <h1 class="display-1 text-light"><span style="color: #6ff037">JUST</span> ONE <span style="color: #6ff037">MORE</span> PARK</h1> </div
 >{%endblock%} {% block addpark %}
 
-<div class="container"> list park /w comments /w rating (+1 -1) </div>
-
-<div>add park form</div>
-
 <div>
   <ul>
     {% if not g.user %}
@@ -40,4 +36,33 @@
   </ul>
 </div>
 
-> {% endblock %}
+<div class="container">
+  <h4 class="display-4 text-center">All Parks</h4>
+  {% for parks in all_parks %}
+  <p>{{parks.park_name}}</p>
+  <p>{{parks.description}}</p>
+  <p>{{parks.address}}</p>
+  <p>{{parks.image}}</p>
+  <p>{{parks.comments}}</p>
+  {% endfor %}
+</div>
+
+<hr />
+
+<div class="container">
+  {% if not g.user %}
+
+  <h4 class="display-4 text-center">Log in to add your park!</h4>
+  {% else %}
+
+  <form method="POST" id="park_post">
+    {{ park.hidden_tag() }} {% for field in park if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
+    <span class="text-danger">{{ error }}</span>
+    {% endfor %} {{ field(placeholder=field.label.text, class="form-control") }} {% endfor %}
+
+    <button type="submit" class="btn btn-success">Add your park!</button>
+  </form>
+  {% endif %}
+</div>
+
+{% endblock %}

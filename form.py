@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import SelectField, StringField, PasswordField, TextAreaField
-from wtforms.validators import InputRequired, Length
+from wtforms.validators import InputRequired, Length, Optional
 
 # Yelp having errors with AR, key error
 states = ["AL", "AK", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
@@ -42,10 +42,12 @@ class UserParkInput(FlaskForm):
     """Get user's custom park location"""
     park_name = StringField("Park Name", validators=[
                             InputRequired(), Length(max=100)])
+    address = StringField("Address", validators=[
+        InputRequired(), Length(max=200)])
     description = TextAreaField("Park Description", validators=[
                                 InputRequired(), Length(min=5)])
-    address = StringField("Title", validators=[
-        InputRequired(), Length(max=200)])
+    image = StringField("**Optional** URL Picture Of Your Park",
+                        validators=[Optional(), Length(max=400)])
 
 
 class CommentForm(FlaskForm):
