@@ -29,6 +29,15 @@
 
 <div>add park form</div>
 
-<p><a href="login">login</a> | <a href="/register">register</a></p>
+<div>
+  <ul>
+    {% if not g.user %}
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login">Log in</a></li>
+    {% else %}
+    <li><a href="/logout">Log Out</a></li>
+    {% endif %}
+  </ul>
+</div>
 
-{% endblock %}
+> {% endblock %}

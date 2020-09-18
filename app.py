@@ -28,7 +28,7 @@ def do_login(user):
     session[CURR_USER_KEY] = user.id
 
 
-def do_logout(user):
+def do_logout():
     """Logout a user"""
 
     if CURR_USER_KEY in session:
@@ -95,6 +95,8 @@ def register():
 
         do_login(user)
 
+        flash(f"Welcome! {user.first_name}", 'success')
+
         return redirect('/addpark')
     else:
         return render_template('register.html', form=form)
@@ -110,11 +112,22 @@ def login():
 
         if user:
             do_login(user)
-            flash(f"Successfully logged in! Weclome {user.first_name}")
+            flash(
+                f"Successfully logged in! Weclome {user.first_name}", 'success')
             return redirect('/addpark')
         flash("Wrong username/password", "danger")
 
     return render_template("login.html", form=form)
+
+
+@app.route('/logout')
+def logout():
+    """Handle logout of user."""
+    do_logout()
+
+    flash("Logged out!", "success")
+
+    return redirect('/')
 
 
 @app.route('/city/<state_id>')

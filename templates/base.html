@@ -62,6 +62,10 @@
         {% endblock %}
       <!-- Main quote end -->
 
+      {% for category, msg in get_flashed_messages(with_categories=True) %}
+      <div class="alert alert-{{ category }} text-center container">{{ msg }}</div>
+      {% endfor %}
+
     </header>
 
     {% block addpark %}
@@ -70,10 +74,7 @@
       
     <!-- Skate Map -->
     <div id='skate-map' class="container map-and-form"></div>
-      <!-- WTForms -->
-      {% for msg in get_flashed_messages() %}
-      <div class="alert alert-danger row-6">{{ msg }}</div>
-      {% endfor %} {% block content %} {% endblock %}
+      <!-- WTForms --> {% block content %} {% endblock %}
       <!-- WTForms End-->
     </div>
     <!-- Skate Map End -->

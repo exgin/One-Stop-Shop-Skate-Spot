@@ -76,12 +76,11 @@ class Comments(db.Model):
     timestamp = db.Column(db.DateTime, nullable=False,
                           default=datetime.utcnow())
 
-    # COMMENT OUT FOR NOW
-    # user_id = db.Column(db.Integer, db.ForeignKey(
-    #     'user.id', ondelete="cascade"))
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete="cascade"))
 
-    # # One:Many | one user can have many comments
-    # user = db.relationship('User')
+    # One:Many | one user can have many comments
+    user = db.relationship('User')
 
 
 class ParkPost(db.Model):
@@ -94,12 +93,11 @@ class ParkPost(db.Model):
     description = db.Column(db.Text, nullable=False)
     address = db.Column(db.Text, nullable=False)
 
-    # COMMENT OUT FOR NOW
     # park's should be assocaited with user's that posted it
-    # user_id = db.Column(db.Integer, db.ForeignKey(
-    #     'user.id', ondelete="cascade"))
-    # comments = db.Column(db.Text, db.ForeignKey(
-    #     'comments.id', ondelete="cascade"))
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete="cascade"))
+    comments = db.Column(db.Text, db.ForeignKey(
+        'comments.id', ondelete="cascade"))
 
 
 class Likes(db.Model):
@@ -109,9 +107,8 @@ class Likes(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    # COMMENT OUT FOR NOW
     # make relationship with the user & post, so user's can like the park post
-    # user_id = db.Column(db.Integer, db.ForeignKey(
-    #     'user.id', ondelete="cascade"))
-    # park_post_id = db.Column(db.Integer, db.ForeignKey(
-    #     'park_post.id', ondelete="cascade"), unique=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete="cascade"))
+    park_post_id = db.Column(db.Integer, db.ForeignKey(
+        'park_post.id', ondelete="cascade"), unique=True)
