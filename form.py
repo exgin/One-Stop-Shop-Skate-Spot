@@ -52,4 +52,5 @@ class UserParkInput(FlaskForm):
 
 class CommentForm(FlaskForm):
     """Form for user's to post comments"""
-    comment = TextAreaField('comment', validators=[InputRequired()])
+    comment = TextAreaField('feature comming soon!',
+                            validators=[InputRequired()])

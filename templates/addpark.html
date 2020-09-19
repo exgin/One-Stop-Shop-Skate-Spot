@@ -57,7 +57,14 @@
       </div>
       <hr />
       <p class="lead">* comments * </p>
-      <p>{{parks.comments}}</p>
+      <!-- <p>{{parks.comments}}</p> -->
+
+      <form method="POST" id="comment_section">
+        {{ comment.hidden_tag() }} {% for field in comment if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %} {{ field(placeholder=field.label.text, class="form-control m-3") }} {% endfor %}
+        <a href="#" class="btn btn-success m-1">Comment!</a>
+      </form>
     </div>
   </div>
   {% endfor %}

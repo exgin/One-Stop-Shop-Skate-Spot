@@ -40,9 +40,6 @@ class User(db.Model):
     username = db.Column(db.Text, nullable=False, unique=True)
     password = db.Column(db.Text, nullable=False, unique=True)
 
-    # COMMENT OUT FOR NOW
-    # comments = db.relationship('Comments')
-
     liked = db.relationship(
         'Likes',
         foreign_keys='Likes.user_id',
@@ -102,8 +99,8 @@ class Comments(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="cascade"))
 
-    # One:Many | one user can have many comments
-    # user = db.relationship('User')
+    park_post_id = db.Column(db.Integer, db.ForeignKey(
+        'park_post.id', ondelete="cascade"))
 
 
 class ParkPost(db.Model):
@@ -120,8 +117,6 @@ class ParkPost(db.Model):
     # park's should be assocaited with user's that posted it
     user_id = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="cascade"))
-    comments = db.Column(db.Integer, db.ForeignKey(
-        'comments.id', ondelete="cascade"))
 
     likes = db.relationship('Likes', backref='park_post', lazy='dynamic')
 
