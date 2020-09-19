@@ -7,7 +7,7 @@
   <form method="POST" id="user_register">
     {{ form.hidden_tag() }} {% for field in form if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
     <span class="text-danger">{{ error }}</span>
-    {% endfor %} {{ field(placeholder=field.label.text, class="form-control") }} {% endfor %}
+    {% endfor %} {{ field(placeholder=field.label.text, class="form-control m-3") }} {% endfor %}
 
     <button type="submit" class="btn btn-success">Sign up!</button>
     <a href="/addpark" class="btn btn-primary">Cancel</a>

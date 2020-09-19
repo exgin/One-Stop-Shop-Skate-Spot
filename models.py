@@ -43,6 +43,29 @@ class User(db.Model):
     # COMMENT OUT FOR NOW
     # comments = db.relationship('Comments')
 
+    liked = db.relationship(
+        'Likes',
+        foreign_keys='Likes.user_id',
+        backref='users', lazy='dynamic')
+
+    def like_post(self, post):
+        """Handle liking a park post"""
+        if not self.has_liked_post(post):
+            like = Likes(user_id=self.id, park_post_id=post.id)
+            db.session.add(like)
+
+    def unlike_post(self, post):
+        """Handle unliking a post"""
+        if self.has_liked_post(post):
+            Likes.query.filter_by(
+                user_id=self.id,
+                park_post_id=post.id).delete()
+
+    def has_liked_post(self, post):
+        """Did this user already like the post?"""
+        return ParkPost.query.filter(Likes.user_id == self.id,
+                                     Likes.park_post_id == post.id).count() > 0
+
     @classmethod
     def register(cls, first_name, last_name, username, password):
         """Sign up a user & hash the password to make it secure"""
@@ -80,7 +103,7 @@ class Comments(db.Model):
         'users.id', ondelete="cascade"))
 
     # One:Many | one user can have many comments
-    user = db.relationship('User')
+    # user = db.relationship('User')
 
 
 class ParkPost(db.Model):
@@ -99,6 +122,8 @@ class ParkPost(db.Model):
         'users.id', ondelete="cascade"))
     comments = db.Column(db.Integer, db.ForeignKey(
         'comments.id', ondelete="cascade"))
+
+    likes = db.relationship('Likes', backref='park_post', lazy='dynamic')
 
 
 class Likes(db.Model):

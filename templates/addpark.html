@@ -40,16 +40,24 @@
   <div class="parks container text-center">
     <div class="card card-accent-primary mb-3" style="max-width: 18rem">
       <div class="card-header">{{parks.park_name}}</div>
+      <img height="150px" src="{{parks.image}}" />
       <div class="card-body text-primary">
         <h5 class="card-title">{{parks.address}}</h5>
         <p class="card-text">{{parks.description}}</p>
         <!-- add likes for only logged in users -->
-        <i class="far fa-heart"></i>
+        {% if not g.user %}
+        <small>Please login to vote.</small>
+        {% endif %} {{parks.likes.count()}} likes
+        <!-- separate ifs -->
+        {% if g.user.has_liked_post(parks) %}
+        <a href="{{ url_for('like_action', park_post_id=parks.id, action='unlike') }}"><i class="far fa-thumbs-down"></i></a>
+        {% else %}
+        <a href="{{ url_for('like_action', park_post_id=parks.id, action='like') }}"><i class="far fa-thumbs-up"></i></a>
+        {% endif %}
       </div>
       <hr />
       <p class="lead">* comments * </p>
       <p>{{parks.comments}}</p>
-      <img src="{{parks.image}}" />
     </div>
   </div>
   {% endfor %}

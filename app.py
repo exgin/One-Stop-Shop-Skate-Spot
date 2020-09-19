@@ -16,6 +16,7 @@ app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 connect_db(app)
+# db.drop_all()
 db.create_all()
 
 # toolbar = DebugToolbarExtension(app)
@@ -74,6 +75,7 @@ def addpark():
     comment = CommentForm()
     park = UserParkInput()
 
+    # Adding A Park
     if park.validate_on_submit():
         try:
             park_post = ParkPost(
@@ -95,6 +97,19 @@ def addpark():
         return redirect('/addpark')
 
     return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
+
+
+@app.route('/<int:park_post_id>/<action>')
+def like_action(park_post_id, action):
+    park_post = ParkPost.query.filter_by(id=park_post_id).first_or_404()
+    if action == 'like':
+        g.user.like_post(park_post)
+        db.session.commit()
+    if action == 'unlike':
+        g.user.unlike_post(park_post)
+        db.session.commit()
+
+    return redirect(request.referrer)
 
 
 @app.route('/register', methods=["GET", "POST"])
