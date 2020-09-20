@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {%block quote%} {% block nav %}
+
 <nav class="navbar fixed-top navbar-expand-xl navbar-light">
   <button
     class="navbar-toggler"
@@ -49,6 +50,7 @@
         <small>Please login to vote.</small>
         {% endif %} {{parks.likes.count()}} likes
         <!-- separate ifs -->
+
         {% if g.user.has_liked_post(parks) %}
         <a href="{{ url_for('like_action', park_post_id=parks.id, action='unlike') }}"><i class="far fa-thumbs-down"></i></a>
         {% else %}
@@ -56,15 +58,16 @@
         {% endif %}
       </div>
       <hr />
+      <!-- Comments Comming Soon -->
       <p class="lead">* comments * </p>
-      <!-- <p>{{parks.comments}}</p> -->
-
+      <p>{{parks.comments}}</p>
       <form method="POST" id="comment_section">
         {{ comment.hidden_tag() }} {% for field in comment if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
         <span class="text-danger">{{ error }}</span>
         {% endfor %} {{ field(placeholder=field.label.text, class="form-control m-3") }} {% endfor %}
         <a href="#" class="btn btn-success m-1">Comment!</a>
       </form>
+      <!-- End of Comments -->
     </div>
   </div>
   {% endfor %}

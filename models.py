@@ -86,23 +86,6 @@ class User(db.Model):
             return False
 
 
-class Comments(db.Model):
-    """Comments for park posts"""
-
-    __tablename__ = "comments"
-
-    id = db.Column(db.Integer, primary_key=True)
-    comment = db.Column(db.Text, nullable=False)
-    timestamp = db.Column(db.DateTime, nullable=False,
-                          default=datetime.utcnow())
-
-    user_id = db.Column(db.Integer, db.ForeignKey(
-        'users.id', ondelete="cascade"))
-
-    park_post_id = db.Column(db.Integer, db.ForeignKey(
-        'park_post.id', ondelete="cascade"))
-
-
 class ParkPost(db.Model):
     """Park's post that stores the comments & likes"""
 
@@ -133,3 +116,19 @@ class Likes(db.Model):
         'users.id', ondelete="cascade"))
     park_post_id = db.Column(db.Integer, db.ForeignKey(
         'park_post.id', ondelete="cascade"), unique=True)
+
+# class Comments(db.Model):
+#     """Comments for park posts"""
+
+#     __tablename__ = "comments"
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     comment = db.Column(db.Text, nullable=False)
+#     timestamp = db.Column(db.DateTime, nullable=False,
+#                           default=datetime.utcnow())
+
+#     user_id = db.Column(db.Integer, db.ForeignKey(
+#         'users.id', ondelete="cascade"))
+
+#     park_post_id = db.Column(db.Integer, db.ForeignKey(
+#         'park_post.id', ondelete="cascade"))

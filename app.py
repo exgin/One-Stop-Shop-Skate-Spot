@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, jsonify, session, f
 from sqlalchemy.exc import IntegrityError
 from form import Input, RegisterForm, LoginForm, UserParkInput, CommentForm
 from apis import yelp_api
-from models import connect_db, db, StateData, User, Comments, Likes, ParkPost
+from models import connect_db, db, StateData, User, Likes, ParkPost
 import os
 # from flask_debugtoolbar import DebugToolbarExtension
 
@@ -16,7 +16,7 @@ app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 connect_db(app)
-# db.drop_all()
+db.drop_all()
 db.create_all()
 
 # toolbar = DebugToolbarExtension(app)
@@ -75,20 +75,20 @@ def addpark():
     comment = CommentForm()
     park = UserParkInput()
 
-    # Adding a Comment
-    if comment.validate_on_submit():
-        try:
-            comment_post = Comments(comment=comment.comment.data)
-            db.session.add(comment_post)
-            db.session.commit()
-        except IntegrityError:
-            flash("Check input", "danger")
-            return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
-
-        flash("Comment added!", "success")
-
-        return redirect('/addpark')
-    return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
+    #################################
+    # Add Comment Coming soon!
+    # if comment.validate_on_submit():
+    #     try:
+    #         comment_post = Comments(comment=comment.comment.data)
+    #         db.session.add(comment_post)
+    #         db.session.commit()
+    #     except IntegrityError:
+    #         flash("Check input", "danger")
+    #         return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
+    #     flash("Comment added!", "success")
+    #     return redirect('/addpark')
+    # return render_template('addpark.html', comment=comment, park=park, all_parks=all_parks)
+    ################################
 
     # Adding A Park
     if park.validate_on_submit():
