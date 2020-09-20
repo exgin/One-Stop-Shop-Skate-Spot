@@ -16,7 +16,6 @@ app.config["SECRET_KEY"] = os.environ.get('HEROKU_SECRET_KEY', 'SECRET')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 connect_db(app)
-db.drop_all()
 db.create_all()
 
 # toolbar = DebugToolbarExtension(app)
