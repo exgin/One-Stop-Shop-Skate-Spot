@@ -115,7 +115,7 @@ class Likes(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="cascade"))
     park_post_id = db.Column(db.Integer, db.ForeignKey(
-        'park_post.id', ondelete="cascade"), unique=True)
+        'park_post.id', ondelete="cascade"))
 
 # class Comments(db.Model):
 #     """Comments for park posts"""

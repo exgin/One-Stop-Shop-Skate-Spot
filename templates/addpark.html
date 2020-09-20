@@ -48,14 +48,10 @@
         <!-- add likes for only logged in users -->
         {% if not g.user %}
         <small>Please login to vote.</small>
-        {% endif %} {{parks.likes.count()}} likes
-        <!-- separate ifs -->
-
-        {% if g.user.has_liked_post(parks) %}
-        <a href="{{ url_for('like_action', park_post_id=parks.id, action='unlike') }}"><i class="far fa-thumbs-down"></i></a>
         {% else %}
+        <a href="{{ url_for('like_action', park_post_id=parks.id, action='unlike') }}"><i class="far fa-thumbs-down"></i></a>
         <a href="{{ url_for('like_action', park_post_id=parks.id, action='like') }}"><i class="far fa-thumbs-up"></i></a>
-        {% endif %}
+        {% endif %} {{parks.likes.count()}} likes
       </div>
       <hr />
       <!-- Comments Comming Soon -->
