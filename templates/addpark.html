@@ -35,35 +35,29 @@
   {% endif %}
 </div>
 
-<div class="container">
-  <h4 class="display-4 text-center">All Parks</h4>
+<h4 class="display-4 text-center">All Parks</h4>
+<div class="container card-group">
   {% for parks in all_parks %}
-  <div class="parks container text-center">
+  <div class="card parks container text-center">
     <div class="card card-accent-primary mb-3" style="max-width: 18rem">
       <div class="card-header">{{parks.park_name}}</div>
-      <img height="150px" src="{{parks.image}}" />
-      <div class="card-body text-primary">
-        <h5 class="card-title">{{parks.address}}</h5>
-        <p class="card-text">{{parks.description}}</p>
-        <!-- add likes for only logged in users -->
-        {% if not g.user %}
-        <small>Please login to vote.</small>
-        {% else %}
-        <a href="{{ url_for('like_action', park_post_id=parks.id, action='unlike') }}"><i class="far fa-thumbs-down"></i></a>
-        <a href="{{ url_for('like_action', park_post_id=parks.id, action='like') }}"><i class="far fa-thumbs-up"></i></a>
-        {% endif %} {{parks.likes.count()}} likes
-      </div>
-      <hr />
-      <!-- Comments Comming Soon -->
-      <p class="lead">* comments * </p>
-      <p>{{parks.comments}}</p>
-      <form method="POST" id="comment_section">
-        {{ comment.hidden_tag() }} {% for field in comment if field.widget.input_type != 'hidden' %} {% for error in field.errors %}
-        <span class="text-danger">{{ error }}</span>
-        {% endfor %} {{ field(placeholder=field.label.text, class="form-control m-3") }} {% endfor %}
-        <a href="#" class="btn btn-success m-1">Comment!</a>
+        <img height="150px" src="{{parks.image}}" />
+          <div class="card-body text-primary">
+            <h5 class="card-title">{{parks.address}}</h5>
+            <p class="card-text">{{parks.description}}</p>
+            <!-- add likes for only logged in users -->
+            {% if not g.user %}
+            <small>Please login to vote.</small>
+            {% else %}
+            <a href="{{ url_for('like_action', park_post_id=parks.id, action='unlike') }}"><i class="far fa-thumbs-down"></i></a>
+            <a href="{{ url_for('like_action', park_post_id=parks.id, action='like') }}"><i class="far fa-thumbs-up"></i></a>
+            {% endif %} {{parks.likes.count()}} likes
+          </div>
+      <!-- Visit Park -->
+      <form action="https://google.com/search" target="_blank" type="GET">
+        <button class='btn btn-primary' name="q" value="{{parks.address}}">Visit Park!</button>
       </form>
-      <!-- End of Comments -->
+      <!-- End Visit Park -->
     </div>
   </div>
   {% endfor %}
