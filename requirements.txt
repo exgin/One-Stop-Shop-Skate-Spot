@@ -55,7 +55,7 @@ public==2019.4.13
 pycodestyle==2.5.0
 pycparser==2.20
 pyflakes==2.1.1
-Pygments==2.6.1
+Pygments==2.7.4
 pylint==2.4.4
 pylint-flask==0.6
 pylint-flask-sqlalchemy==0.2.0
